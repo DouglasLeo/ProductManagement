@@ -17,7 +17,9 @@ namespace ProductManagement.Infrastructure.Mappings
             builder.Property(p => p.Ncm)
                 .IsRequired()
                 .HasMaxLength(8);
-            
+            builder.Property(p => p.Quantity)
+                .IsRequired(false);
+
             builder.HasOne(p => p.Category)
                 .WithMany(c => c.Product)
                 .HasForeignKey(p => p.CategoryId);
