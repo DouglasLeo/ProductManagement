@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ProductManagement.UI.Models;
+using ProductManagement.UI.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

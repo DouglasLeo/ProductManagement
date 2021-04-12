@@ -18,15 +18,22 @@ namespace ProductManagement.Infrastructure.Repositories
         }
         public async Task<List<Product>> FindByStock(int quantity)
         {
-            return await DbSet.Where(q => q.Quantity < quantity).ToListAsync();
+            return await Context.Products.AsNoTracking().Where(q => q.Quantity < quantity).ToListAsync();
         }
 
         public async Task<List<Product>> FindByProfitMargin(decimal percentage)
         {
-            return await (from product in DbSet 
+            return await (from product in Context.Products.AsNoTracking() 
                 let profitMargin = _profitMarginService.ProfitMargin(product) 
                 where profitMargin > percentage 
                 select product).ToListAsync();
+        }
+
+        public async Task<Product> FindProductCategory(int id)
+        {
+            return await Context.Products.AsNoTracking()
+                .Include(c => c.Category)
+                .FirstOrDefaultAsync(c => c.Id == id);
         }
     }
 }

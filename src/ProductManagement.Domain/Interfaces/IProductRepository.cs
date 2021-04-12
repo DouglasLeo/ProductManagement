@@ -8,5 +8,6 @@ namespace ProductManagement.Domain.Interfaces
     {
         Task<List<Product>> FindByStock(int quantity);
         Task<List<Product>> FindByProfitMargin(decimal percentage);
+        Task<Product> FindProductCategory(int id);
     }
 }

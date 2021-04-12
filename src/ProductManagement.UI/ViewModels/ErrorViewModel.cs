@@ -1,6 +1,6 @@
 using System;
 
-namespace ProductManagement.UI.Models
+namespace ProductManagement.UI.ViewModels
 {
     public class ErrorViewModel
     {
