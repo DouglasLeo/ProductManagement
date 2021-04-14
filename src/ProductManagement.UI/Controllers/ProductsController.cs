@@ -29,6 +29,11 @@ namespace ProductManagement.UI.Controllers
         {
             return View(_mapper.Map<IEnumerable<ProductViewModel>>(await _productRepository.Get()));
         }
+        
+        public async Task<IActionResult> FindByStock(int quantity)
+        {
+            return View(_mapper.Map<IEnumerable<ProductViewModel>>(await _productRepository.FindByStock(quantity)));
+        }
 
         public async Task<IActionResult> Details(int id)
         {

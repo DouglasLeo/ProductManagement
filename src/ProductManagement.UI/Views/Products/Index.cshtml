@@ -6,8 +6,23 @@
 }
 
 <h1>Index</h1>
-<div class="col-md-4">
-    <a asp-action="Upload" class="btn btn-primary">Importar Documento</a>
+<div>
+    <table>
+        <tr>
+            <td>
+                <div >
+                    <a asp-action="Upload" class="btn btn-primary">Importar Documento</a> <br/>
+                </div>
+            </td>
+            <td>
+                <form asp-action="FindByStock" method="post">
+                        <label class="control-label"></label>
+                        <input type="number" name="quantity" class="form-control"/>
+                        <input type="submit" value="Procurar por Quantidade" class="btn btn-primary"/>
+                </form>
+            </td>
+        </tr>
+    </table>
 </div>
 <table class="table">
     <thead>
