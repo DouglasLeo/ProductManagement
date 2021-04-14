@@ -52,6 +52,7 @@ namespace ProductManagement.UI
             services.AddScoped<ProductManagementContext>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProfitMarginService, ProfitMarginService>();
+            services.AddScoped<IImportFileService, ImportFileService>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

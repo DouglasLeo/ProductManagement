@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 using ProductManagement.Domain.Entities;
 
 namespace ProductManagement.Infrastructure.Context
@@ -13,6 +14,8 @@ namespace ProductManagement.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductManagementContext).Assembly);
+            modelBuilder.Entity<Product>().Property(p => p.Id).ValueGeneratedNever();
+
             base.OnModelCreating(modelBuilder);
         }
     }

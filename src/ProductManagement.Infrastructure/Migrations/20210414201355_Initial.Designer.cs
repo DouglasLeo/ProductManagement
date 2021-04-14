@@ -10,8 +10,8 @@ using ProductManagement.Infrastructure.Context;
 namespace ProductManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(ProductManagementContext))]
-    [Migration("20210412135311_initial")]
-    partial class initial
+    [Migration("20210414201355_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,9 +40,7 @@ namespace ProductManagement.Infrastructure.Migrations
             modelBuilder.Entity("ProductManagement.Domain.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");

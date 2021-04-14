@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.Domain.Entities;
 using ProductManagement.Domain.Interfaces;
-using ProductManagement.Domain.Services;
 using ProductManagement.Infrastructure.Context;
 
 namespace ProductManagement.Infrastructure.Repositories

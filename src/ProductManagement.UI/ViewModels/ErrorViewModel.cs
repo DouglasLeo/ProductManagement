@@ -1,5 +1,3 @@
-using System;
-
 namespace ProductManagement.UI.ViewModels
 {
     public class ErrorViewModel

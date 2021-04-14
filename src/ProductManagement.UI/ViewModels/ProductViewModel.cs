@@ -1,11 +1,28 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace ProductManagement.UI.ViewModels
 {
     public class ProductViewModel
     {
+        public ProductViewModel( string name, decimal purchasePrice, decimal sellPrice, int ncm, string category, DateTime dataCadastro)
+        {
+            
+            Name = name;
+            PurchasePrice = purchasePrice;
+            SellPrice = sellPrice;
+            Ncm = ncm;
+            Category.Name = category;
+            DataCadastro = dataCadastro;
+        }
+
+        public ProductViewModel()
+        {
+            
+        }
+
         [Key]
         public int Id { get; set; }
         
@@ -24,10 +41,10 @@ namespace ProductManagement.UI.ViewModels
         [DisplayName("Preço de Venda")]
         public decimal SellPrice { get; set; }
         
-        [MaxLength(8)]
         public int Ncm { get; set; }
 
-        public CategoryViewModel Category { get;  set; }
+        public IFormFile File { get; set; }
+        public CategoryViewModel Category { get; set; } = new CategoryViewModel();
         
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
