@@ -1,18 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProductManagement.Infrastructure.Context;
 using ProductManagement.UI.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ProductManagement.Domain.Interfaces;
+using ProductManagement.Domain.Services;
+using ProductManagement.Infrastructure.Repositories;
 
 namespace ProductManagement.UI
 {
@@ -49,7 +46,13 @@ namespace ProductManagement.UI
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddAutoMapper(typeof(Startup));
             services.AddControllersWithViews();
+
+            services.AddScoped<ProductManagementContext>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProfitMarginService, ProfitMarginService>();
+            services.AddScoped<IImportFileService, ImportFileService>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
